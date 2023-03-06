@@ -8,12 +8,6 @@ import (
 	"strings"
 )
 
-func check(e error) {
-    if e != nil {
-        panic(e)
-    }
-}
-
 func main(){
 	csvfilename := flag.String("csv","problems.csv","CSV file which contains question and answer separated by comma")
 	flag.Parse()
@@ -39,7 +33,13 @@ func main(){
 		}
 	}
 
-	fmt.Printf("You answered %d correct answer out of %d problems",correct, len(problems))
+	fmt.Printf("You answered %d correct answers out of %d problems",correct, len(problems))
+}
+
+func check(e error) {
+    if e != nil {
+        panic(e)
+    }
 }
 
 func parseLines(lines [][]string) []problem{
