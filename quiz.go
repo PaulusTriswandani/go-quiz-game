@@ -27,10 +27,8 @@ func main(){
 	problems := parseLines(lines)
 
 	if *shuffle == true {
-		fmt.Println(problems)
 		rand.Seed(time.Now().UnixNano())
 		rand.Shuffle(len(problems), func(i, j int) { problems[i], problems[j] = problems[j], problems[i] })
-		fmt.Println(problems)
 	}
 
 	timer := time.NewTimer(time.Duration(*timeLimit) * time.Second)
